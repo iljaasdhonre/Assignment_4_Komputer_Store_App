@@ -11,27 +11,78 @@
 </head>
 <body>
     <div class="container-fluid p-0">
-        <div class="header center bg-black text-white p-3">
+        <div class="header center bg-black text-white p-4">
             <h1>Komputer store</h1>
         </div>
-        <div class="main">
-            <div class="section">
-                <div class="row">
-                    <div class="col-sm">1</div>
-                    <div class="col-sm">2</div>
-                    <div class="col-sm">3</div>
-                </div>
-                <div class="section">
-                    <div class="row">
-                        <div class="col-sm bg-black">
-                            <div class="align-content-center">
-                                4
-                            </div>
+            <div class="row">
+                <!-- Personal info -->
+                <section class="col-sm">
+                    <div class="card">
+                        <div class="card-header">Jane Doe</div>
+                        <div class="card-body">
+                            <label>Balance</label>
+                            <span id="bankBalance">€200</span>
+                        </div>
+                        <div class="card-body">
+                            <label>Loan</label>
+                            <span id="loanBalance">€2000</span>
+                        </div>
+                        <div class="card-footer">
+                            <button id="loan" type="button" class="btn btn-danger">Get a loan</input>
                         </div>
                     </div>
+                </section>
+
+                <!-- Income -->
+                <section class="col-sm">
+                    <div class="card">
+                        <div class="card-header">Work</div>
+                        <div class="card-body">
+                            <label>Pay</label>
+                            <span id="paymentBalance">€0</span>
+                        </div>
+                        <div class="card-footer">
+                            <button id="bank" type="button" class="btn btn-warning">Bank</button>
+                            <button id="salary" type="button" class="btn btn-success">Work</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Laptop selection -->
+                <section class="col-sm">
+                    <div class="card">
+                        <div class="card-header">Laptops</div>
+                        <div class="card-body">
+                            <select class="dropdown" name="laptops" id="laptops"></select>
+                            <p>Features:</p>
+                            <p id="specs">Lorum ipsum</p>
+                        </div>
+                    </div>
+                </section>
                 </div>
-            </div>
-        </div>
+
+                <!-- Laptop details -->
+                <div class="row">
+                    <section class="col-sm">
+                            <div class="card" style="margin-top: 20px;">
+                                <div class="row no-gutters">
+                                    <div class="col-sm-5">
+                                        <img id="image" src="images/img_1.png" height="200"  alt="mock laptop"></img>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="card-body">
+                                            <h5 id="title" class="card-title">Computer title</h5>
+                                            <p id="description" class="card-text">Computer details</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <p id="price" class="card-text">€1500</p>
+                                        <button id="buy" class="btn btn-primary">Buy now</button>
+                                    </div>
+                                </div>
+                            </div>
+                    </section>
+                </div>
     </div>
+    <script src="js/index.js"></script>
 </body>
-</html>

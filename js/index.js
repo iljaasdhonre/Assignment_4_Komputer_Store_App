@@ -14,7 +14,7 @@ const descriptionElement = document.getElementById("description");
 const priceElement = document.getElementById("price");
 const buyButtonElement = document.getElementById("buy");
 
-let bankBalance = 0.0;
+let paymentBalance = 0.0;
 let computers = [];
 
 //Fetch the computerdata
@@ -37,7 +37,8 @@ const addComputerToList = (computer) => {
     computersElement.appendChild(computerElement);
 }
 
+
 function updateSalary(){
-    bankBalance += 100.00;
-    paymentBalanceElement.innerText = bankBalance;
+    paymentBalance += 100.00;
+    paymentBalanceElement.innerText = paymentBalance;
 }

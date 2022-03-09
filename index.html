@@ -22,11 +22,11 @@
                         <div class="card-header">Jane Doe</div>
                         <div class="card-body">
                             <label>Balance</label>
-                            <span id="bankBalance">€200</span>
+                            <span id="bankBalance">€0</span>
                         </div>
                         <div class="card-body">
                             <label>Loan</label>
-                            <span id="loanBalance">€2000</span>
+                            <span id="loanBalance">€0</span>
                         </div>
                         <div class="card-footer">
                             <button id="loan" type="button" class="btn btn-danger">Get a loan</input>
@@ -43,7 +43,7 @@
                             <span id="paymentBalance">€0</span>
                         </div>
                         <div class="card-footer">
-                            <button id="bank" type="button" class="btn btn-warning">Bank</button>
+                            <button id="bank" type="button" class="btn btn-warning" onClick="moveSalaryToBank()">Bank</button>
                             <button id="salary" type="button" class="btn btn-success" onClick="updateSalary()">Work</button>
                         </div>
                     </div>

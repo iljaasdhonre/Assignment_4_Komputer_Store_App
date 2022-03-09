@@ -6,7 +6,7 @@ const bankButtonElement = document.getElementById("bank");
 const salaryButtonElement = document.getElementById("salary");
 const computersElement = document.getElementById("computers");
 const specsElement = document.getElementById("specs");
-const imageElement = document.getElementById("image");
+let imageElement = document.getElementById("image");
 const titleElement = document.getElementById("title");
 const descriptionElement = document.getElementById("description");
 const priceElement = document.getElementById("price");
@@ -28,6 +28,11 @@ fetch("https://noroff-komputer-store-api.herokuapp.com/computers")
 
 const addComputersToList = (computersData) => {
     computersData.forEach(x => addComputerToList(x));
+    specsElement.innerText = computersData[0].specs;
+    titleElement.innerText = computersData[0].title;
+    descriptionElement.innerText = computersData[0].description;
+    priceElement.innerText = computersData[0].price;
+    imageElement.src = "https://noroff-komputer-store-api.herokuapp.com/" + computersData[0].image;
 }
 
 //appending computertitles to the dropdownment
@@ -101,5 +106,18 @@ function checkValidLoanAmount(amount){
 function throwAlert(message){
     return alert(message)
 }
+
+//Show data of computer from dropdow
+const handleComputerListChange = e => {
+    const selectedComputer = computers[e.target.selectedIndex];
+    specsElement.innerText = selectedComputer.specs;
+    titleElement.innerText = selectedComputer.title;
+    descriptionElement.innerText = selectedComputer.description;
+    priceElement.innerText = selectedComputer.price;
+    imageElement.src = "https://noroff-komputer-store-api.herokuapp.com/" + selectedComputer.image;
+    imageElement.alt = selectedComputer.title;
+}
+
+computersElement.addEventListener('change', handleComputerListChange);
 
 

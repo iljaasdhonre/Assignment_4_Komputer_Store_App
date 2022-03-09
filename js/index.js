@@ -1,5 +1,3 @@
-console.log("hello");
-
 const bankBalanceElement = document.getElementById("bankBalance");
 const loanBalanceElement = document.getElementById("loanBalance");
 const loanButtonElement = document.getElementById("loan");
@@ -59,18 +57,17 @@ function moveSalaryToBank(){
     else if(loanBalance > tenPercentOfSalaryToBank){
         loanBalance -= tenPercentOfSalaryToBank
         bankBalance += toBankBalance
-
     }
     else if(loanBalance < tenPercentOfSalaryToBank ){
         loanBalance = 0.0;
         toBankBalance += (tenPercentOfSalaryToBank - loanBalance);
         bankBalance += toBankBalance;
-
-
     }
-
+    
     paymentBalance = 0.0;
     bankBalanceElement.innerText = bankBalance;
     loanBalanceElement.innerText = loanBalance;
     paymentBalanceElement.innerText = paymentBalance;
 }
+
+

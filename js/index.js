@@ -36,3 +36,8 @@ const addComputerToList = (computer) => {
     computerElement.appendChild(document.createTextNode(computer.title));
     computersElement.appendChild(computerElement);
 }
+
+function updateSalary(){
+    bankBalance += 100.00;
+    paymentBalanceElement.innerText = bankBalance;
+}

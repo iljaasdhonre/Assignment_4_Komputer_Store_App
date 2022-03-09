@@ -63,11 +63,43 @@ function moveSalaryToBank(){
         toBankBalance += (tenPercentOfSalaryToBank - loanBalance);
         bankBalance += toBankBalance;
     }
-    
+
     paymentBalance = 0.0;
     bankBalanceElement.innerText = bankBalance;
     loanBalanceElement.innerText = loanBalance;
     paymentBalanceElement.innerText = paymentBalance;
+}
+
+//Prompt user to insert the amount for a loan and check against the actual loanBalance and bankBalance
+function applyForLoan(){
+
+        if(loanBalance != 0.0){
+            throwAlert("You already have a loan, you can not loan any more money.")   
+        }
+        else{
+            const loanAmount = Number(window.prompt("How much would you like to loan?", "Amount"));
+            checkValidLoanAmount(loanAmount);
+        }
+}
+
+//Check type of user input and against the actual loanBalance and bankBalance
+function checkValidLoanAmount(amount){
+
+    if(amount.isNan | typeof amount == 'string' | amount == null){
+        throwAlert("Please insert a valid amount")
+    }
+    else if(amount/bankBalance > 2){
+        throwAlert("The amount you can loan cannot be more than double your bankaccount")
+    }
+    else{
+        loanBalance = amount
+        loanBalanceElement.innerText = amount
+    }
+}
+
+//Custom throw alert
+function throwAlert(message){
+    return alert(message)
 }
 
 

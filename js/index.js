@@ -44,10 +44,10 @@ const addComputerToList = (computer) => {
 }
 
 //update paymentBalance by 100 on each click
-function updateSalary(){
+const updateSalary = () => {
     paymentBalance += 100.00;
     paymentBalanceElement.innerText = paymentBalance;
-}
+};
 
 //update bankBalance by moving paymentBalance to bankBalance and setting paymentBalance to 0
 function moveSalaryToBank(){

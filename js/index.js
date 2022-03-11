@@ -88,7 +88,7 @@ function moveSalaryToBank(){
 //Reduce loanBalance by amount of paymentBalance and if paymentBalance is not 0 raise bankBalance accordingly
 function repayLoanInFull(){
 
-    if(paymentBalance <= loanBalance){
+    if(paymentBalance < loanBalance){
         loanBalance -= paymentBalance;
         updateBalance(outstandingLoanSpan, loanBalance);
     }
@@ -109,13 +109,11 @@ function repayLoanInFull(){
 
 //Prompt user to insert the amount for a loan and check against the actual loanBalance and bankBalance
 function applyForLoan(){
-
         if(loanBalance != 0.0){
             throwAlert("You already have a loan, you cannot loan any more money.")   
         }
         else{
             const loanAmount = Number(window.prompt("How much would you like to loan?", "Amount"));
-            loanBalance = loanAmount;
             checkValidLoanAmount(loanAmount);
         }
 }
@@ -136,6 +134,7 @@ function checkValidLoanAmount(loanAmount){
 
 //Raise bankBalance with loanamount and create the outstanding loan label, amount and repay loan button.
 function processLoanApplication(loanAmount){
+    loanBalance = loanAmount;
     bankBalance += loanAmount;
     updateBalance(bankBalanceElement, bankBalance);
     updateDiv("build", loanAmount);
@@ -146,8 +145,6 @@ function processLoanApplication(loanAmount){
 function buyComputer(){
     const laptopPrice = priceElement.innerText.split(" ");
     const laptopTitle = titleElement.innerText;
-
-    console.log(laptopPrice[1]);
 
     if(!canBuyLaptop(laptopPrice[1])){
         throwAlert("You cannot afford to buy this computer");
@@ -208,6 +205,7 @@ const handleComputerListChange = e => {
     imageElement.alt = selectedComputer.title;
 }
 
+//Format the price of a computer
 const formatComputerPrice = (computerPrice) => Number.parseInt(computerPrice).toFixed(2);
 
 //Handle computer change in dropdownmenu

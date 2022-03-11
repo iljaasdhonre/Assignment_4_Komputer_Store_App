@@ -12,6 +12,7 @@ const titleElement = document.getElementById("title");
 const descriptionElement = document.getElementById("description");
 const priceElement = document.getElementById("price");
 const buyButtonElement = document.getElementById("buy");
+const workCardElement = document.getElementById("workCard");
 
 let paymentBalance = 0.0;
 let bankBalance = paymentBalance;
@@ -20,6 +21,9 @@ let computers = [];
 const outstandingLoanDiv = document.createElement("div");
 const outstandingLoanLabel = document.createElement("label");
 const outstandingLoanSpan = document.createElement("span");
+const repaymentButton = document.createElement("button");
+repaymentButton.className = "btn btn-info";
+repaymentButton.innerText = "Repay loan";
 
 //Fetch the computerdata
 fetch("https://noroff-komputer-store-api.herokuapp.com/computers")
@@ -81,6 +85,28 @@ function moveSalaryToBank(){
     updateBalance(paymentBalanceElement, paymentBalance);
 }
 
+//Reduce loanBalance by amount of paymentBalance and if paymentBalance is not 0 raise bankBalance accordingly
+function repayLoanInFull(){
+
+    if(paymentBalance <= loanBalance){
+        loanBalance -= paymentBalance;
+        updateBalance(outstandingLoanSpan, loanBalance);
+    }
+    else{
+        paymentBalance -= loanBalance;
+        loanBalance = 0.0;
+        bankBalance += paymentBalance;
+        updateBalance(outstandingLoanSpan, loanBalance);
+        updateBalance(bankBalanceElement, bankBalance);
+        updateDiv("remove");
+        repaymentButton.remove();
+    }
+
+    paymentBalance = 0.0;
+    updateBalance(paymentBalanceElement, paymentBalance);
+
+}
+
 //Prompt user to insert the amount for a loan and check against the actual loanBalance and bankBalance
 function applyForLoan(){
 
@@ -118,21 +144,24 @@ function processLoanApplication(loanAmount){
 
 //Handle the onClick event for the buy now button
 function buyComputer(){
-    const laptopPrice = Number(priceElement.innerText);
+    const laptopPrice = formatComputerPrice(priceElement.innerText);
     const laptopTitle = titleElement.innerText;
+
+    console.log(laptopPrice);
+    console.log(typeof laptopPrice);
 
     if(!canBuyLaptop(laptopPrice)){
         throwAlert("You cannot afford to buy this computer");
     }
     else{
-        bankBalanceElement.innerText = bankBalance;
+        updateBalance(bankBalanceElement, bankBalance);
         throwAlert("You are now the proud owner of the " + laptopTitle);
         
     }
 }
 
 //Check if the price of the computer is lower than the bankBalance and set the bankBalance lower if so
-function canBuyLaptop(price){
+const canBuyLaptop = (price) => {
     if(price <= bankBalance){
         bankBalance -= price;
         return true;
@@ -153,10 +182,10 @@ const updateDiv = (action, loanAmount) => {
     if(action === "build"){
         outstandingLoanLabel.innerText = "Outstanding loan ";
         updateBalance(outstandingLoanSpan, loanAmount)
-        //outstandingLoanSpan.innerText = loanAmount;
         outstandingLoanDiv.appendChild(outstandingLoanLabel);
         outstandingLoanDiv.appendChild(outstandingLoanSpan);
         outstandingLoanElement.appendChild(outstandingLoanDiv);
+        workCardElement.appendChild(repaymentButton);
     }else if(action === "remove"){
         outstandingLoanDiv.removeChild(outstandingLoanSpan);
         outstandingLoanDiv.removeChild(outstandingLoanLabel);
@@ -175,11 +204,17 @@ const handleComputerListChange = e => {
     specsElement.innerText = selectedComputer.specs;
     titleElement.innerText = selectedComputer.title;
     descriptionElement.innerText = selectedComputer.description;
-    priceElement.innerText = selectedComputer.price;
+    updateBalance(priceElement, selectedComputer.price);
+    //priceElement.innerText = selectedComputer.price;
     imageElement.src = "https://noroff-komputer-store-api.herokuapp.com/" + selectedComputer.image;
     imageElement.alt = selectedComputer.title;
 }
 
+const formatComputerPrice = (computerPrice) => Number.parseFloat(computerPrice).toFixed(2);
+
 //Handle computer change in dropdownmenu
 computersElement.addEventListener('change', handleComputerListChange);
+
+//Handle repayment of loan click event
+repaymentButton.addEventListener('click', repayLoanInFull);
 

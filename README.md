@@ -1,6 +1,6 @@
 # Assignment_4_Komputer_Store_App
 
-[![web]
+[![web]]
 
 The Komputer Store App is a website where the user can opt to buy a computer. This app is part of an assignment of the Noroff Javascript course.
 

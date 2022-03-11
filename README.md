@@ -1,6 +1,6 @@
 # Assignment_4_Komputer_Store_App
 
-[![web]https://assignment-4-komputer-store.herokuapp.com/]
+[![web](https://img.shields.io/static/v1?logo=heroku&message=Online&label=Heroku&color=430098)](https://assignment-4-komputer-store.herokuapp.com/)
 
 The Komputer Store App is a website where the user can opt to buy a computer. This app is part of an assignment of the Noroff Javascript course.
 

@@ -19,7 +19,7 @@ The Komputer Store App is a website where the user can opt to buy a computer. Th
 
 ![Schermafbeelding 2022-03-11 om 18 43 37](https://user-images.githubusercontent.com/99182968/157921453-b27fec8b-61f9-48bf-9fa5-07fd962a79f3.png)
 
-##Author
+## Author
 Iljaas Dhonre
 
 ## Contributing

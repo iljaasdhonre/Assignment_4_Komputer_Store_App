@@ -40,7 +40,7 @@ const addComputersToList = (computersData) => {
     specsElement.innerText = computersData[0].specs;
     titleElement.innerText = computersData[0].title;
     descriptionElement.innerText = computersData[0].description;
-    priceElement.innerText = computersData[0].price;
+    priceElement.innerText = "€ "+ formatComputerPrice(computersData[0].price);
     imageElement.src = "https://noroff-komputer-store-api.herokuapp.com/" + computersData[0].image;
 }
 
@@ -144,13 +144,12 @@ function processLoanApplication(loanAmount){
 
 //Handle the onClick event for the buy now button
 function buyComputer(){
-    const laptopPrice = formatComputerPrice(priceElement.innerText);
+    const laptopPrice = priceElement.innerText.split(" ");
     const laptopTitle = titleElement.innerText;
 
-    console.log(laptopPrice);
-    console.log(typeof laptopPrice);
+    console.log(laptopPrice[1]);
 
-    if(!canBuyLaptop(laptopPrice)){
+    if(!canBuyLaptop(laptopPrice[1])){
         throwAlert("You cannot afford to buy this computer");
     }
     else{
@@ -204,13 +203,12 @@ const handleComputerListChange = e => {
     specsElement.innerText = selectedComputer.specs;
     titleElement.innerText = selectedComputer.title;
     descriptionElement.innerText = selectedComputer.description;
-    updateBalance(priceElement, selectedComputer.price);
-    //priceElement.innerText = selectedComputer.price;
+    priceElement.innerText = "€ "  + formatComputerPrice(selectedComputer.price);
     imageElement.src = "https://noroff-komputer-store-api.herokuapp.com/" + selectedComputer.image;
     imageElement.alt = selectedComputer.title;
 }
 
-const formatComputerPrice = (computerPrice) => Number.parseFloat(computerPrice).toFixed(2);
+const formatComputerPrice = (computerPrice) => Number.parseInt(computerPrice).toFixed(2);
 
 //Handle computer change in dropdownmenu
 computersElement.addEventListener('change', handleComputerListChange);

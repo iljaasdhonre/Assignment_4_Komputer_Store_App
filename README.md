@@ -9,7 +9,7 @@ The Komputer Store App is a website where the user can opt to buy a computer. Th
 - (alternative) U can pull this repo and run the app in your browser by an IDE or texteditor similar to Visual Studio Code.
 
 ## Usage
-- Get money by clicking the 'Work' button.
+- Get money(salary) by clicking the 'Work' button.
 - Transfer the money to your bankaccount by pressing the 'Bank' button.
 - If you need more money, get a loan and put in the right amount.
 - Buy the computer you want with enough money in the bank by pressing the 'Buy now' button.

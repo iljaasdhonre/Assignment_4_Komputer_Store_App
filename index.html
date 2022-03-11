@@ -25,8 +25,8 @@
                             <span id="bankBalance"></span>
                         </div>
                         <div class="card-body">
-                            <label>Loan</label>
-                            <span id="loanBalance"></span>
+                            <div id="outstandingLoan">
+                            </div>
                         </div>
                         <div class="card-footer">
                             <button id="loan" type="button" class="btn btn-danger" onClick="applyForLoan()">Get a loan</input>
@@ -80,7 +80,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <p id="price" class="card-text"></p>
-                                        <button id="buy" class="btn btn-primary">Buy now</button>
+                                        <button id="buy" onClick="buyComputer()" class="btn btn-primary">Buy now</button>
                                     </div>
                                 </div>
                             </div>

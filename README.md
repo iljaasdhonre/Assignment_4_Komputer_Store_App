@@ -17,7 +17,7 @@ The Komputer Store App is a website where the user can opt to buy a computer. Th
 - By pressing the 'Repay loan' button you can use all of your salary to pay off your loan.
 - Have fun!
 
-![Schermafbeelding 2022-03-11 om 18 43 37](https://user-images.githubusercontent.com/99182968/157921453-b27fec8b-61f9-48bf-9fa5-07fd962a79f3.png)
+![Schermafbeelding 2022-03-11 om 19 34 24](https://user-images.githubusercontent.com/99182968/157930833-ab881d23-d859-4157-871f-74406ce4304c.png)
 
 ## Author
 Iljaas Dhonre

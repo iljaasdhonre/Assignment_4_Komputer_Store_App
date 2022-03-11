@@ -5,8 +5,8 @@
 The Komputer Store App is a website where the user can opt to buy a computer. This app is part of an assignment of the Noroff Javascript course.
 
 ## Installation
-- U can use the link above to go to the website. 
-- (alternative) U can pull this repo and run the app in your browser by an IDE or texteditor similar to Visual Studio Code.
+- Go to the website by using the link above. 
+- (alternative) Pull this repo and run the app in your browser by an IDE or texteditor similar to Visual Studio Code.
 
 ## Usage
 - Get money(salary) by clicking the 'Work' button.

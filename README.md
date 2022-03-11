@@ -11,7 +11,7 @@ The Komputer Store App is a website where the user can opt to buy a computer. Th
 ## Usage
 - Get money(salary) by clicking the 'Work' button.
 - Transfer the money to your bankaccount by pressing the 'Bank' button.
-- If you need more money, get a loan and put in the right amount.
+- If you need more money, get a loan and put in the right amount. Your bankbalance will be updated with the money you loaned.
 - Buy the computer you want with enough money in the bank by pressing the 'Buy now' button.
 - When you have a loan 10% of your salary will be used to pay off the loan.
 - By pressing the 'Repay loan' button you can use all of your salary to pay off your loan.

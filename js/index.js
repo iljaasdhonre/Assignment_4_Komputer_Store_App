@@ -202,7 +202,7 @@ const handleComputerListChange = e => {
     descriptionElement.innerText = selectedComputer.description;
     priceElement.innerText = "€ "  + formatComputerPrice(selectedComputer.price);
     imageElement.src = "https://noroff-komputer-store-api.herokuapp.com/" + selectedComputer.image;
-    imageElement.alt = selectedComputer.title;
+    imageElement.alt = "Whoops! Image not found";
 }
 
 //Format the price of a computer
